@@ -1,0 +1,29 @@
+import logging
+import os
+from datetime import datetime
+from src.utils.args import Args
+from src.authorizers.custom_authorizer import CustomAuthorizer
+from src.handlers.custom_handler import CustomHandler
+from src.servers.custom_server import CustomServer
+
+
+def main():
+    authorizer = CustomAuthorizer().retrieve_authorizer()
+
+    handler = CustomHandler
+    handler.authorizer = authorizer
+    handler.banner = "FTPy is Ready!"
+
+    server = CustomServer().retrieve_server(handler)
+    server.serve_forever()
+
+
+def configure_logs():
+    logging.basicConfig(filename=os.getcwd() + '/logs/ftpy-' + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + '.log',
+                        level=logging.INFO)
+
+
+if __name__ == '__main__':
+    configure_logs()
+    Args()
+    main()

@@ -1,0 +1,6 @@
+pytest
+pytest-cov
+mutmut
+unittest2
+unicode
+pyftpdlib
