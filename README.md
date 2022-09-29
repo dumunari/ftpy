@@ -48,4 +48,3 @@ At the project root folder:
   * ```pytest --cov=src tests```
 * To run mutation tests:
   * ```mutmut run```
-
