@@ -1,9 +1,14 @@
 name: Mergeback from main to backstage-integration
 
 on:
-  schedule:
-    - cron: "20 8-22/2 * * 1-5"
+  push:
+    branches:
+      - main
   workflow_dispatch:
+  
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   merge-branch:
