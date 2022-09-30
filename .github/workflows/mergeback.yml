@@ -10,7 +10,7 @@ jobs:
   merge-branch:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.ref }}
+      - run: echo ${{ github.base_ref }}
       - uses: actions/checkout@v2
       - uses: everlytic/branch-merge@1.1.2
         with:
